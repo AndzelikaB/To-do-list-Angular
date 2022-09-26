@@ -1,29 +1,16 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-
+import localePl from '@angular/common/locales/pl';
 import { registerLocaleData } from '@angular/common';
-import PL from '@angular/common/locales/pl';
-import de from '@angular/common/locales/de'
 
-registerLocaleData(PL);
-registerLocaleData(de);
-
-import {NgPipesModule} from 'ngx-pipes';
+registerLocaleData(localePl);
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    NgPipesModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
-  
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
-
+export class AppModule {}

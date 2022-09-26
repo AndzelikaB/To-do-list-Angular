@@ -1,38 +1,38 @@
 import { Component } from '@angular/core';
-import {ReversePipe} from 'ngx-pipes';
-
+import { Task } from './task';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  // providers: [ReversePipe]
 })
-
 export class AppComponent {
+  config: { [key: string]: string } | null  = null;
+  tasks: Task[] = [
+    {
+      name: 'Siłownia',
+      deadline: '2020-01-02',
+      done: false,
+    },
+    {
+      name: 'Nauka Angulara',
+      deadline: '2020-01-03',
+      done: false,
+    },
+    {
+      name: 'Sprzątanie kuwety',
+      deadline: '2020-01-04',
+      done: false,
+    },
+  ];
 
-  // constructor(private reversePipe: ReversePipe) {
-  //   this.reversePipe.transform('foo'); 
-  // }
-
-  someDate = Date.now();
-
-  data(){
-    Date.now();
+  constructor() {
+    setTimeout(() => {
+      this.config = {
+        title: 'Lista zadań',
+        footer: '© Lista zadań zbudowana w Angularze.',
+        date: new Date().toDateString(),
+      };
+    }, 500);
   }
-  title = "Przykłady-pipów"
-  test = 'Data'
-  dzien = 'Dzień'
-  number = 7.0890990909765;
-  price = 2.99;
-  percentage = 100;
-
-  translate = {
-    zima: 'winter',
-    wiosna: 'spring',
-    jesień: 'autumn',
-    lato: 'summer',
-  };
-
-  words = 'Codylenek'
 }
