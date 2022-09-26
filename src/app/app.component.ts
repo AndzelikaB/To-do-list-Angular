@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task } from './task';
+import {personData} from './data';
 
 @Component({
   selector: 'app-root',
@@ -8,26 +8,50 @@ import { Task } from './task';
 })
 export class AppComponent {
   config: { [key: string]: string } | null  = null;
-  tasks: Task[] = [
+
+  persons = personData;
+  
+  frameworks = [
+    'Angular',
+    'React',
+    'Vue',
+    'Ember',
+    'Backbone',
+    'Express',
+    'Django',
+    'Rails',
+    'Laravel',
+    'Spring',
+  ];
+
+  cars = [
     {
-      name: 'Siłownia',
-      deadline: '2020-01-02',
-      done: false,
+      mark: 'Opel',
+      model: 'Corsa',
     },
     {
-      name: 'Nauka Angulara',
-      deadline: '2020-01-03',
-      done: false,
+      mark: 'Nissan',
+      model: 'Juke',
     },
     {
-      name: 'Sprzątanie kuwety',
-      deadline: '2020-01-04',
-      done: false,
+      mark: 'Fiat',
+      model: 'Tipo',
+    },
+    {
+      mark: 'Skoda',
+      model: 'Oktavia',
     },
   ];
 
+  carsObj = {
+    Opel: 'Corsa',
+    Nissan: 'Juke',
+    Fiat: 'Tipo',
+    Skoda: 'Oktavia',
+  };
+
   constructor() {
-    setTimeout(() => {
+    setTimeout( () => {
       this.config = {
         title: 'Lista zadań',
         footer: '© Lista zadań zbudowana w Angularze.',
