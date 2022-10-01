@@ -7,24 +7,44 @@ import { Task } from './task';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  taskName!: string;
   config: { [key: string]: string } | null  = null;
   tasks: Task[] = [
     {
-      name: 'Siłownia',
-      deadline: '2020-01-02',
+      name: 'Spacer z psem',
+      deadline: '2022-09-30',
       done: false,
     },
     {
       name: 'Nauka Angulara',
-      deadline: '2020-01-03',
+      deadline: '2023-03-06',
       done: false,
     },
     {
-      name: 'Sprzątanie kuwety',
-      deadline: '2020-01-04',
+      name: 'Joga',
+      deadline: '2022-12-24',
       done: false,
     },
   ];
+
+  clearTasks(){
+    this.tasks = [];
+  }
+
+  onKeyUp(event : KeyboardEvent){
+    const target = event.target as HTMLInputElement;
+    this.taskName = target.value;
+    console.log("xczxc")
+  }
+
+  createTask(){
+    const task : Task = {
+      name: this.taskName,
+      deadline: '01-10-2022',
+      done: false
+    }
+    this.tasks.push(task);
+  }
 
   constructor() {
     setTimeout(() => {
