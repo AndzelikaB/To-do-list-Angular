@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Data } from '@angular/router';
 import { Task } from './task';
 
 @Component({
@@ -7,7 +8,7 @@ import { Task } from './task';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  taskName!: string;
+  // taskName!: string;
   config: { [key: string]: string } | null  = null;
   tasks: Task[] = [
     {
@@ -31,16 +32,10 @@ export class AppComponent {
     this.tasks = [];
   }
 
-  onKeyUp(event : KeyboardEvent){
-    const target = event.target as HTMLInputElement;
-    this.taskName = target.value;
-    console.log("xczxc")
-  }
-
-  createTask(){
+  createTask(name : string, deadline: string){
     const task : Task = {
-      name: this.taskName,
-      deadline: '01-10-2022',
+      name,
+      deadline,
       done: false
     }
     this.tasks.push(task);
