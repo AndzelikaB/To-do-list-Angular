@@ -8,9 +8,9 @@ import { Task } from './task';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  // taskName!: string;
-  taskName = "Codzienne zadanie: Nauka";
-  taskData = '';
+  editMode : boolean = false;
+  taskName : string = "Codzienne zadanie: Nauka";
+  taskData : string = '';
   config: { [key: string]: string } | null  = null;
   tasks: Task[] = [
     {
@@ -26,7 +26,7 @@ export class AppComponent {
     {
       name: 'Joga',
       deadline: '2022-12-24',
-      done: false,
+      done: true,
     },
   ];
 
@@ -53,5 +53,9 @@ export class AppComponent {
         date: new Date().toDateString(),
       };
     }, 500);
+  }
+
+  switchEditMode(){
+    this.editMode = !this.editMode
   }
 }
