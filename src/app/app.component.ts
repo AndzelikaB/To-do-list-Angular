@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Data } from '@angular/router';
-import { takeLast } from 'rxjs';
 import { Task } from './task';
 
 @Component({
@@ -13,6 +11,7 @@ export class AppComponent {
   taskName: string = 'Codzienne zadanie: Nauka';
   taskData: string = '';
   config: { [key: string]: string } | null = null;
+
   tasks: Task[] = [
     {
       name: 'Spacer z psem',
@@ -59,8 +58,8 @@ export class AppComponent {
   constructor() {
     setTimeout(() => {
       this.config = {
-        title: 'Tasks List',
-        footer: '© Tasks List build in Angular',
+        title: 'To Do List',
+        footer: '© To Do List built in Angular',
         date: new Date().toDateString(),
       };
     }, 500);
